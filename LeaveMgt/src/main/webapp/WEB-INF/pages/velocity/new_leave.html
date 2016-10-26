@@ -1,0 +1,280 @@
+<div class="modal-header">
+	<h4 class="modal-title">
+		<center>ADD NEW LEAVE</center>
+	</h4>
+</div>
+<div class="modal-body">
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<h3>Present/Absent Application Request Details</h3>
+		</div>
+		<div class="panel-body">
+			<form name="myForm" ng-submit="submit()">
+				<div class="form-group col-md-8">
+					<div class="row">
+						<h5>
+							<b>Application Type :</b>
+						</h5>
+
+						<table class="table table-nonfluid table-borderless">
+							<tbody>
+								<tr>
+									<td><input type="radio" ng-click="showdd=false" ng-model="typeofleave" name="leaveType" value="pl" required>&nbsp;&nbsp;Planned
+										Leave</td>
+									<td><input type="radio" ng-click="showdd=false" ng-model="typeofleave" name="leaveType" value="upl">&nbsp;&nbsp;
+										Unplanned Leave</td>
+									<td><input type="radio" ng-click="showdd=false" ng-model="typeofleave" name="leaveType" value="lwp">&nbsp;&nbsp;
+										LWP(Leave Without Pay)</td>
+								</tr>
+								<!-- <tr>
+									<td><input type="radio"  ng-click="showDD=true"
+										name="leaveType">&nbsp;&nbsp;On-Duty <span
+										class="dropdown"> <select ng-model="ddlReasons"
+											ng-show="showDD"
+											ng-options="r.reason for r in reasons track by r.id">
+												<option></option>
+										</select>
+									</span><br></td>
+									<td><input type="radio"  name="leaveType"
+										ng-click="showDD1=true">&nbsp;&nbsp;UL-PL <span
+										class="dropdown"> <select ng-model="ddlTypeOf"
+											ng-show="showDD1"
+											ng-options="p.type for p in typeOf track by p.id">
+												<option></option>
+										</select>
+									</span></td>
+								</tr>
+								-->
+								<tr>
+									<td><input type="radio" ng-click="showdd=true" ng-model="typeofleave" name="leaveType" value="fh1">&nbsp;&nbsp;FH
+										1 2016</td>
+									<td><input type="radio" ng-click="showdd=true" ng-model="typeofleave"
+										name="leaveType" value="fh2">&nbsp;&nbsp;Fh 2 2016</td>
+									<td><span class="dropdown"> 
+									<select	ng-model="fholiday" ng-show="showdd">
+										<option value="15-Jan-2016,Friday,Makar Sakranti/Pongal">15-Jan-2016 - Friday - Makar Sakranti/Pongal</option>
+										<option value="19-Feb-2016,Friday,Shivaji Jayanti">19-Feb-2016 - Friday - Shivaji Jayanti</option>
+										<option value="07-Mar-2016,Monday,Maha Shivratri">07-Mar-2016 - Monday - Maha Shivratri</option>
+										<option value="25-Mar-2016,Friday,Good Friday">25-Mar-2016 - Friday - Good Friday</option>
+										<option value="08-Apr-2016,Friday,Gudi Padva">08-Apr-2016 - Friday - Gudi Padva</option>
+										<option value="13-Apr-2016,Wednesday,Baisakhi">13-Apr-2016 - Wednesday - Baisakhi</option>
+										<option value="14-Apr-2016,Thursday,Dr.Ambedkar Jayanti,Puthandu">14-Apr-2016 - Thursday - Dr.Ambedkar Jayanti,Puthandu</option>
+										<option value="15-Apr-2016,Friday,Ram Navami,Vishu">15-Apr-2016 - Friday - Ram Navami,Vishu</option>
+										<option value="19-Apr-2016,Tuesday,Mahavir Jayanti">19-Apr-2016 - Tuesday - Mahavir Jayanti</option>
+										<option value="06-Jul-2016,Wednesday,Id-Ul-Fitr(Ramzan)">06-Jul-2016 - Wednesday - Id-Ul-Fitr(Ramzan)</option>
+										<option value="07-Jul-2016,Thursday,Id-Ul-Fitr(Ramzan)">07-Jul-2016 - Thursday - Id-Ul-Fitr(Ramzan)</option>
+										<option value="25-Aug-2016,Thursday,Krishna Janmashtami">25-Aug-2016 - Thursday - Krishna Janmashtami</option>
+										<option value="05-Sep-2016,Monday,Ganesh Chaturthi">05-Sep-2016 - Monday - Ganesh Chaturthi</option>
+										<option value="12-Sep-2016,Monday,Bakri Id">12-Sep-2016 - Monday - Bakri Id</option>
+										<option value="13-Sep-2016,Tuessday,Onam">13-Sep-2016 - Tuessday - Onam</option>
+										<option value="10-Oct-2016,Monday,Durga Puja">10-Oct-2016 - Monday - Durga Puja</option>
+										<option value="12-Oct-2016,Wednesday,Muharram">12-Oct-2016 - Wednesday - Muharram</option>
+										<option value="28-Oct-2016,Friday,Dhanteras">28-Oct-2016 - Friday - Dhanteras</option>
+										<option value="14-Nov-2016,Monday,Guru Nanak Jayanti">14-Nov-2016 - Monday - Guru Nanak Jayanti</option>
+										<option value="12-Dec-2016,Monday,Id-E-Milad,Datta Jayanti">12-Dec-2016 - Monday - Id-E-Milad,Datta Jayanti</option>
+									</select>
+											
+									</span></td>
+								</tr>
+								 
+							</tbody>
+						</table>
+
+					</div>
+					<br> <br>
+					<div class="row">
+						<!--  <div class="form-group has-feedback">
+							<label><input  type="checkbox">&nbsp;&nbsp;&nbsp;Recursive
+								Half-leaves </label>
+						</div>
+						-->
+					</div>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-sm-3">
+								Start Date : <span style="color: red">*</span>
+							</div>
+							<!-- <div class="col-sm-3">
+								Half day <span><input  type="checkbox"></span>
+							</div> -->
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group">
+
+							<div class="col-sm-3 input-group-date">
+								<input type="text" ng-model="sd" class="form-control" id="from" name=
+									required>
+							</div>
+							<!-- <div class="dropdown col-sm-3">
+								<select ng-model="ddlHf1" class="form-control"
+									ng-options="hf.name for hf in halfday track by hf.id"></select>
+							</div> -->
+						</div>
+					</div>
+
+					<br>
+					<div class="row">
+						<div class="form-group">
+							<div class="col-sm-3">
+								End Date : <span style="color: red">*</span>
+							</div>
+							<!--<div class="col-sm-3">
+								Half day <span><input type="checkbox"></span>
+							</div>-->
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<div class="col-sm-3">
+								<input type="text" class="form-control" id="to" ng-model="d2"
+									required>
+							</div>
+							<!--<div class="dropdown col-sm-3">
+								<select ng-model="ddlHf2" class="form-control"
+									ng-options="hf1.name for hf1 in halfday1 track by hf1.id"></select>
+							</div> -->
+						</div>
+					</div>
+
+					<br> <br>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-sm-3">
+								<b>Contact No :</b><span style="color: red">*</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-sm-3">
+								<input ng-pattern="/^[0-9]{10,10}$/" type="text" ng-model="cn"
+									class="form-control" required>
+							</div>
+						</div>
+					</div>
+
+					<br> <br>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<b>Reason :</b><span style="color: red">*</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-9">
+								<input type="text" class="form-control" ng-model="res" required>
+							</div>
+						</div>
+					</div>
+
+					<br> <br>
+
+					<div class="row">
+						<div class="col-md-3">
+							<button type="submit" class="btn btn-primary"
+								ng-disabled="myForm.$invalid">Submit</button>
+						</div>
+						<div class="col-md-3">
+							<button type="reset" class="btn btn-danger">Clear text</button>
+						</div>
+					</div>
+				</div>
+			</form>
+
+
+			<div class="row col-md-4">
+				<br>
+				<table class="table table-borderless  table-condensed table-striped">
+					<thead ng-class="{'header': true}">
+						<tr>
+							<th>Date</th>
+							<th>Day</th>
+							<th>Holiday</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="odd">
+							<td>01 Jan 2016</td>
+							<td>Friday</td>
+							<td>New Year</td>
+						</tr>
+						<tr class="even">
+							<td>26 Jan 2016</td>
+							<td>Tuesday</td>
+							<td>Republic day</td>
+						</tr>
+						<tr class="odd">
+							<td>24 Mar 2016</td>
+							<td>Thursday</td>
+							<td>Holi</td>
+						</tr>
+						<tr class="even">
+							<td>15 Aug 2016</td>
+							<td>Monday</td>
+							<td>Independence day</td>
+						</tr>
+						<tr class="odd">
+							<td>15 Sep 2016</td>
+							<td>Thursday</td>
+							<td>Anant Chaturdashi</td>
+						</tr>
+						<tr class="even">
+							<td>11 Oct 2016</td>
+							<td>Tuesday</td>
+							<td>Dusshera</td>
+						</tr>
+						<tr class="odd">
+							<td>31 Oct 2016</td>
+							<td>Monday</td>
+							<td>Diwali</td>
+						</tr>
+						<tr class="even">
+							<td>01 Nov 2016</td>
+							<td>Tuesday</td>
+							<td>Bhaidooj</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div align="center">
+	<button type="button" class="btn btn-warning">Cancel</button>
+</div>
+<br>
+</div>
+
+<script>
+	//	Date picker	
+	$(function(){
+	    $( "#from" ).datepicker({
+	      dateFormat: 'yy-mm-dd',
+	      defaultDate: "+1w",
+	      changeMonth: true,
+	      onClose: function( selectedDate ) {
+	        $( "#to" ).datepicker( "option", "minDate", selectedDate );
+	    }
+    });
+    $( "#to" ).datepicker({
+    	 dateFormat: 'yy-mm-dd',
+      	 defaultDate: "+1w",
+     	 changeMonth: true,
+   	 	 onClose: function( selectedDate ) {
+        	$( "#from" ).datepicker( "option", "maxDate", selectedDate );
+      	}
+    });
+  });
+</script>

@@ -1,0 +1,74 @@
+<fieldset>
+	<legend>Employee Details</legend>
+	<table class="table table-borderless  table-condensed">
+		<thead>
+			<tr>
+				<th>Emp Code</th>
+				<th>Employee Name</th>
+				<th>Email</th>
+				<th>Joining Date</th>
+			</tr>
+
+		</thead>
+		<tbody>
+			<tr>
+				<td class="green" ng-bind='empDetailsId'></td>
+				<td class="green" ng-bind='emp.empname'></td>
+				<td class="green" ng-bind='emp.empMail'></td>
+				<td class="green" ng-bind='emp.dateOfJoining'></td>
+			</tr>
+			<tr>
+				<th>Gender</th>
+				<th>Blood Group</th>
+				<th>Available Planned Leaves</th>
+				<th>Available Unplanned Leaves</th>
+			</tr>
+			<tr>
+				<td class="green" ng-bind='emp.gender'></td>
+				<td class="green" ng-bind='emp.bloodGrp'></td>
+				<td class="green" ng-bind='emp.plannedLeaves'></td>
+				<td class="green" ng-bind='emp.unPlannedLeaves'></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<br/><span ng-bind="errorMessage"></span><br>
+	
+</fieldset>
+
+<fieldset>
+	<button type="button" id="newLeave" ng-click="loadNewLeave()" class="btn btn-info">Add New Leave</button>	&nbsp;&nbsp;&nbsp;
+	<button type="button" id="approvedLeave" ng-click="loadApprovedLeaves()" class="btn btn-info">Check Approved Leaves</button>&nbsp;&nbsp;&nbsp;
+	<button type="button" id="newEmp" ng-click="loadNewEmp()" class="btn btn-info" ng-show="isManager">Add New Employee</button>&nbsp;&nbsp;&nbsp;
+	<button type="button" id="approveLeaveEmp" ng-click="loadApproveLeaveEmp()" class="btn btn-info" ng-show="isManager">Approve Leaves Of Employees</button>&nbsp;&nbsp;&nbsp;
+	<a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">Change Password</a>
+	<!-- <a ng-href="#"  data-target="#myModal" data-toggle="modal">Change Password</a> -->
+</fieldset>
+
+<br><br>
+<!-- Modal content     Change Password-->
+<div class="modal fade" id="myModal" role="dialog">
+    	<div class="modal-dialog">
+    
+      
+	      	<div class="modal-content">
+	        	<div class="modal-header">
+	        		<h4 class="modal-title"><center>Change Password</center></h4>
+				</div>
+				<div class="modal-body">
+					<form ng-submit="submit()">
+						<input type="password" class="form-control" ng-model="newpass" id="newpass" placeholder="New Password"><br>
+						<input type="password" class="form-control" ng-model="cpass" id="cpass" placeholder="Confirm Password"><br>
+						<button type="submit"  class="btn btn-primary form-control">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="collapse">
+	<!-- Modal content-->
+	<div class="modal-content">
+		<div ui-view></div>
+	</div>
+</div>
+

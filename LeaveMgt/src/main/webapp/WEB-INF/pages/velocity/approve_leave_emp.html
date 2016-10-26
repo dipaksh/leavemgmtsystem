@@ -1,0 +1,76 @@
+<div class="modal-header">
+	<h4 class="modal-title">
+		<center>APPROVE LEAVES OF EMPLOYEES</center>
+	</h4>
+</div>
+<div class="modal-body">
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<h3>Approve or Disapprove Employee Leaves</h3>
+		</div>
+		<div class="panel-body">
+		
+			<table class="table table-borderless  table-condensed">
+				<thead ng-class="{'header': true}">
+					<tr>
+						<th ng-click="onCol = 'empId'">Employee Id</th>
+						<th>Start Date</th>
+						<th>Status</th>
+						<th></th>
+						<th></th>
+					</tr>
+
+				</thead>
+				<tbody>
+					<tr ng-repeat="mgrLeave in mgrLeaves | orderBy : onCol"  ng-class-even="'even'" ng-class-odd="'odd'">
+						<a><td ng-bind='mgrLeave.empId' ng-click="getEmpLeaveDetails(mgrLeave.empId, mgrLeave.startdate)"></td></a>
+						<td ng-bind='mgrLeave.startdate'></td>
+						<td ng-bind='mgrLeave.status'></td>
+						<td><a ng-click="approveLeave(mgrLeave.leaveNum, mgrLeave.empId)">Approve</a></td>
+						<td><a ng-click="disapproveLeave(mgrLeave.leaveNum, mgrLeave.empId)">Disapprove</a></td>
+					</tr>
+				</tbody>
+			</table>
+			Click on Employee Id to view details
+			
+			<br><br>
+			<table class="table table-borderless  table-condensed" ng-show="showDetails">
+				<thead ng-class="{'header': true}">
+					<tr>
+						<th>Employee name</th>
+						<th>Type of Leave</th>
+						<th>Start Date</th>
+						<th>End Date</th>
+						<th>First Half</th>
+						<th>Second Half</th>
+						<th>Status</th>
+						<th>Reason</th>
+						<th>Phone No.</th>
+					</tr>
+
+				</thead>
+				<tbody>
+					<tr class="odd">
+						<td ng-bind='empdetails.empname'></td>
+						<td ng-bind='empLeaveDetails.typeOfLeave'></td>
+						<td ng-bind='empLeaveDetails.startDate'></td>
+						<td ng-bind='empLeaveDetails.endDate'></td>
+						<td ng-bind='empLeaveDetails.firstHalf'></td>
+						<td ng-bind='empLeaveDetails.secondHalf'></td>
+						<td ng-bind='empLeaveDetails.status'></td>
+						<td ng-bind='empLeaveDetails.reason'></td>
+						<td ng-bind='empLeaveDetails.phone'></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+		</div>
+	</div>
+
+	<br> <br>
+	<div align="center">
+		<button type="button" class="btn btn-warning">Cancel</button>
+	</div>
+	<br>
+</div>

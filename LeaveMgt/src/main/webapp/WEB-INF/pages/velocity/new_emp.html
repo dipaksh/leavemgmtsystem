@@ -1,0 +1,111 @@
+<div class="modal-header">
+	<h4 class="modal-title">
+		<center>ADD NEW EMPLOYEE</center>
+	</h4>
+</div>
+<div class="modal-body">
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<h3>Add New Employee Information</h3>
+		</div>
+		<div class="panel-body">
+			<form name="myForm" ng-submit="submit()">
+				
+				<div class="row">
+					<div class="form-group col-md-6">
+						<input placeholder="Employee Id" ng-model="eid" type="number" name="Idemp" class="form-control"  required>
+					     <span class="validation" ng-show="myForm.Idemp.$dirty && Idemp.$error.required">This is a required field</span>
+              				<span class="validation" ng-show="myFOrm.Idemp.$dirty && Idemp.$error.minlength">Minimum length required is 4</span>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group col-md-6">
+						<input placeholder="Full Name" type="text" ng-model="name"
+							ng-minlength=1 ng-maxlength=30 name="uname" class="username form-control" required />
+							<span class="validation" ng-show="myForm.$dirty && myForm.uname.$error.required">This is a required field</span>
+              				<span class="validation" ng-show="myForm.$dirty && myForm.uname.$error.minlength">Minimum length required is 4</span>
+              				<span class="validation" ng-show="myForm.$dirty && myForm.uname.$invalid">This field is invalid </span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group col-md-6">
+						<input placeholder="Email Address"
+							ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" type="text"
+							class="form-control" ng-model="email" name="email" ng-minlength=1
+							ng-maxlength=30 required />
+		<span class="validation" ng-show="myForm.$dirty && myForm.email.$error.required">This is a required field</span>
+		<span class="validation" ng-show="myForm.$dirty && myForm.email.$invalid">This field is invalid </span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group col-md-6">
+						<input placeholder="Date Of Joining" type="text" id="doj"
+							class="form-control" ng-model="doj" ng-minlength=1
+							ng-maxlength=12 required />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group col-md-6">
+						<div class="dropdown">
+							Blood Group :
+							<select class="form-control" ng-model="bgroup">
+								<option></option>
+								<option value="A+">A+</option>
+								<option value="A-">A-</option>
+								<option value="B+">B+</option>
+								<option value="B-">B-</option>
+								<option value="AB+">AB+</option>
+								<option value="AB-">AB-</option>
+								<option value="O+">O+</option>
+								<option value="O-">O-</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="form-group col-md-6">
+						<div class="radio">
+							<b>Gender : </b> 
+							<label><input type="radio" name="gender" ng-model="gender" value="Male" required>Male</label>
+							<label><input type="radio" name="gender" ng-model="gender" value="Female">Female</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group col-md-6">
+						<div class="col-md-2">
+							<button type="submit" ng-disabled="myForm.$invalid" class="btn btn-primary">Submit</button>
+						</div>
+						<div class="col-md-2">
+							<button type="reset" class="btn btn-danger">Clear text</button>
+						</div>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
+
+<br>
+<br>
+<div align="center">
+	<button type="button" class="btn btn-warning">Cancel</button>
+</div>
+<br>
+</div>
+<script>
+//	Date picker	
+	$(function(){
+		 $("#doj").datepicker({
+			    dateFormat: 'yy-mm-dd'
+		 });
+	});
+</script>
